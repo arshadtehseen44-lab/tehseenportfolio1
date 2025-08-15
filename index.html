@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tehseen Arshad - Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    /* 1. Reset & Global Styles */
+    :root {
+        --bg-dark: #111827; /* Dark Slate Gray */
+        --bg-light: #1F2937; /* Lighter Slate Gray for cards */
+        --accent: #06b6d4; /* Vibrant Teal/Cyan */
+        --accent-hover: #0891b2; /* Darker Teal for hover */
+        --text-primary: #FFFFFF;
+        --text-secondary: #D1D5DB; /* Light Gray */
+        --border-color: #374151;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--bg-dark);
+        color: var(--text-secondary);
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    section {
+        padding: 100px 5%;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--text-primary);
+    }
+    
+    .section-subtitle {
+        text-align: center;
+        color: var(--accent);
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 50px;
+    }
+
+    /* 2. Navigation Bar */
+    .main-nav {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5%;
+        background-color: rgba(31, 41, 55, 0.8);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+    .main-nav img{
+      width: 180px;
+      height: 100px;
+      color: white;
+    }
+
+    .main-nav h2 {
+        font-size: 1.8rem;
+    }
+
+    .main-nav .nav-links {
+        display: flex;
+        align-items: center;
+        list-style: none;
+    }
+
+    .main-nav .nav-links li {
+        margin-left: 25px;
+    }
+
+    .main-nav .nav-links a {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .main-nav .nav-links a:hover {
+        color: var(--accent);
+    }
+    
+    .hire-me-btn {
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-size: 1rem;
+        color: var(--text-primary);
+        background-color: var(--accent);
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .hire-me-btn:hover {
+        background-color: var(--accent-hover);
+        transform: scale(1.05);
+    }
+
+    /* 3. Hero Section */
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        gap: 2rem;
+    }
+
+    .hero-text .head1 {
+        font-size: 4rem;
+        line-height: 1.2;
+    }
+    .hero-text .head2 {
+        font-size: 4rem;
+        color: var(--accent);
+    }
+    .hero-text p {
+        font-size: 1.2rem;
+        margin: 20px 0 30px 0;
+        max-width: 600px;
+    }
+
+    .hero-stats {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 30px;
+    }
+    .stat-item h3 {
+        font-size: 2.8rem;
+        color: var(--accent);
+        line-height: 1;
+    }
+    .stat-item p {
+        margin: 5px 0 0 0;
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .hero-actions .buttonp {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        border-radius: 20px;
+        color: var(--text-primary);
+        background: var(--accent);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .hero-actions .buttonp:hover {
+        background: var(--accent-hover);
+        transform: translateY(-3px);
+    }
+    .hero-actions .get-in-touch {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    .hero-actions .get-in-touch:hover {
+        color: var(--accent);
+    }
+
+    .hero-image img {
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--accent);
+        box-shadow: 0 0 30px var(--accent);
+    }
+
+    /* 4. About Section */
+    #About p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 0 auto 30px auto;
+        text-align: center;
+    }
+    .about-features {
+        max-width: 800px;
+        margin: 0 auto 40px auto;
+    }
+    .about-features p {
+        text-align: left;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    .about-features i {
+        color: var(--accent);
+        margin-right: 15px;
+    }
+    .downloadbton {
+        display: block;
+        width: 250px;
+        padding: 15px;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        background-color: var(--accent);
+        color: var(--text-primary);
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .downloadbton:hover {
+        background-color: var(--accent-hover);
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
+    }
+    .downloadbton i {
+        margin-left: 10px;
+    }
+
+    /* 5. Skills, Services, Projects - Card System */
+    .card-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    /* Skills Card */
+    .skill-card {
+        background-color: var(--bg-light);
+        width: 170px;
+        height: 150px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+    }
+    .skill-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(6, 182, 212, 0.1);
+        border-color: var(--accent);
+    }
+    .skill-card i {
+        font-size: 3.5rem;
+        color: var(--accent);
+        margin-bottom: 15px;
+    }
+    .skill-card h4 {
+        font-size: 1.2rem;
+    }
+
+    /* Service Card */
+    .service-card {
+        background-color: var(--bg-light);
+        width: 350px;
+        padding: 40px 30px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+    }
+     .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(6, 182, 212, 0.1);
+        border-color: var(--accent);
+    }
+    .service-card i {
+        font-size: 3rem;
+        color: var(--accent);
+        margin-bottom: 20px;
+    }
+    .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    .service-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    /* Project Card */
+    .project-card {
+        background-color: var(--bg-light);
+        width: 380px;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+    }
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(6, 182, 212, 0.2);
+        border-color: var(--accent);
+    }
+    .project-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+    .project-content {
+        padding: 25px;
+    }
+    .project-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    .project-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    .project-tags {
+        margin-bottom: 20px;
+    }
+    .project-tags .project-btn {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+        border-radius: 15px;
+        background-color: #374151;
+        color: var(--text-secondary);
+        border: none;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    .project-links .demo, .project-links .gith {
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    .project-links .demo {
+        background-color: var(--accent);
+        color: var(--text-primary);
+    }
+    .project-links .demo:hover {
+        background-color: var(--accent-hover);
+    }
+    .project-links .gith {
+        background-color: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--accent);
+        margin-left: 10px;
+    }
+    .project-links .gith:hover {
+        background-color: var(--accent);
+    }
+
+    /* 6. Commitment Section */
+    #Commitment {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+    }
+    .commitment-image img {
+        max-width: 550px;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .commitment-text {
+        max-width: 550px;
+    }
+    .commitment-text h2 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+    .commitment-text > p {
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+    .commitment-list .item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    .commitment-list .item i {
+        color: var(--accent);
+        font-size: 1.2rem;
+    }
+
+    /* 7. Contact Section */
+    .form-container {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    .form-row input, .form-container textarea {
+        width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        background-color: var(--bg-light);
+        color: var(--text-primary);
+        font-size: 1rem;
+    }
+    .form-row input:focus, .form-container textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+    }
+    .form-container textarea {
+        height: 150px;
+        resize: none;
+        margin-bottom: 20px;
+    }
+    .massagebuton {
+        display: block;
+        width: 250px;
+        margin: 20px auto 0 auto;
+        padding: 15px;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        background-color: var(--accent);
+        color: var(--text-primary);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .massagebuton:hover {
+        background-color: var(--accent-hover);
+        transform: translateY(-5px);
+    }
+    .contact-info {
+        text-align: center;
+        margin-top: 40px;
+    }
+    .contact-info h5 {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    .contact-info a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+    }
+    .contact-info a:hover {
+        color: var(--accent);
+    }
+    
+    /* 8. Footer */
+    .site-footer {
+        background-color: var(--bg-light);
+        padding: 60px 5% 40px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    .footer-about {
+        max-width: 350px;
+    }
+    .footer-about h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    .footer-about p {
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+    .social-icons {
+        display: flex;
+        gap: 15px;
+    }
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-primary);
+        background-color: #374151;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+    .social-icons a:hover {
+        background-color: var(--accent);
+        transform: translateY(-5px);
+    }
+    .footer-column h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    .footer-column ul {
+        list-style: none;
+    }
+    .footer-column ul li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .footer-column ul a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .footer-column ul a:hover {
+        color: var(--accent);
+        padding-left: 5px;
+    }
+    .footer-column ul li a:hover {
+        padding-left: 0; /* Override for contact list */
+    }
+    .footer-bottom {
+        background-color: var(--bg-dark);
+        padding: 20px 5%;
+        border-top: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .footer-bottom p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+    .footer-legal a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+    }
+    .footer-legal a:hover {
+        color: var(--accent);
+    }
+
+    /* 9. Responsive Media Queries */
+
+    /* Tablets */
+    @media (max-width: 1024px) {
+        .section-title { font-size: 2.5rem; }
+        .hero { flex-direction: column-reverse; text-align: center; padding-top: 120px; }
+        .hero-text .head1, .hero-text .head2 { font-size: 3rem; }
+        .hero-stats { justify-content: center; }
+        .hero-actions { justify-content: center; }
+        #Commitment { text-align: center; }
+        .commitment-text { order: 1; }
+        .commitment-image { order: 2; }
+        .site-footer { justify-content: flex-start; }
+        .footer-column, .footer-about { min-width: 250px; }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .main-nav .nav-links { display: none; } /* Basic hide for mobile, JS needed for toggle */
+        .section-title { font-size: 2rem; }
+        .hero-text .head1, .hero-text .head2 { font-size: 2.5rem; }
+        .hero-image img { width: 300px; height: 300px; }
+        .form-row { flex-direction: column; }
+        .site-footer { flex-direction: column; text-align: center; }
+        .footer-about, .footer-column { max-width: 100%; }
+        .social-icons { justify-content: center; }
+        .footer-column ul li { justify-content: center; }
+        .footer-bottom { flex-direction: column; text-align: center; }
+    }
+</style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <!-- Make sure you have a 'logo2.png' file in the same directory -->
+        <img src="logo2.png" alt="Tehseen Arshad Logo">
+        <ul class="nav-links">
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Skills">Skills</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="#Projects">Projects</a></li>
+            <li><a href="#Contact">Contact</a></li>
+            <li><button class="hire-me-btn">Hire Me</button></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="Home">
+        <div class="hero-text">
+            <h1 class="head1">Hi, I'm <br> Tehseen Arshad <br> A Creative</h1>
+            <h2 class="head2">Web Developer</h2>
+            <p>I design and build responsive, user-friendly websites and web applications that drive results and delight users. Let's bring your digital vision to life!</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>2+</h3>
+                    <p>Years of <br>Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Client <br>Satisfaction</p>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <button class="buttonp">View My Work</button>
+                <div class="get-in-touch">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Get In Touch</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Make sure you have a 'te.jpg' file in the same directory -->
+            <img src="te.jpg" alt="Portrait of Tehseen Arshad">
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="About">
+        <h6 class="section-subtitle">Who I AM</h6>
+        <h2 class="section-title">About Me</h2>
+        <p>Hello! I'm Tehseen Arshad, a passionate and results-oriented Web Developer with a knack for creating dynamic and intuitive digital experiences. With a strong foundation in modern web technologies, I thrive on transforming complex problems into elegant, efficient solutions. My journey in web development started with a fascination for how websites work, and it has grown into a full-fledged passion for building tools that help people and businesses achieve their goals.</p>
+        <div class="about-features">
+            <p><i class="fa-solid fa-circle-check"></i>Versatile Across Diverse Project Domains</p>
+            <p><i class="fa-solid fa-circle-check"></i>Committed to Clean & Efficient Code</p>
+            <p><i class="fa-solid fa-circle-check"></i>Focus on User Experience & Accessibility</p>
+        </div>
+        <!-- Replace '#' with the actual path to your CV file -->
+        <a href="#" class="downloadbton">Download CV<i class="fa-solid fa-download"></i></a>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="Skills" style="background-color: var(--bg-light);">
+        <h6 class="section-subtitle">MY ARSENAL</h6>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="card-container">
+            <div class="skill-card"><i class="fab fa-html5"></i><h4>HTML5</h4></div>
+            <div class="skill-card"><i class="fab fa-css3-alt"></i><h4>CSS3</h4></div>
+            <div class="skill-card"><i class="fab fa-js-square"></i><h4>JavaScript</h4></div>
+            <div class="skill-card"><i class="fab fa-react"></i><h4>React</h4></div>
+            <div class="skill-card"><i class="fab fa-node-js"></i><h4>Node.js</h4></div>
+            <div class="skill-card"><i class="fab fa-python"></i><h4>Python</h4></div>
+            <div class="skill-card"><i class="fas fa-database"></i><h4>SQL/NoSQL</h4></div>
+            <div class="skill-card"><i class="fab fa-git-alt"></i><h4>Git & GitHub</h4></div>
+            <div class="skill-card"><i class="fab fa-bootstrap"></i><h4>Bootstrap</h4></div>
+            <div class="skill-card"><i class="fab fa-ethereum"></i><h4>Solidity</h4></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="Services">
+        <h6 class="section-subtitle">WHAT I DO</h6>
+        <h2 class="section-title">My Services</h2>
+        <div class="card-container">
+            <div class="service-card">
+                <i class="fa-solid fa-code"></i>
+                <h3>Frontend Development</h3>
+                <p>Crafting responsive and engaging user interfaces with modern technologies.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-server"></i>
+                <h3>Backend Development</h3>
+                <p>Building robust and scalable server-side logic and APIs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>Full-Stack Solutions</h3>
+                <p>End-to-end web application development, from concept to deployment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="Projects" style="background-color: var(--bg-light);">
+        <h6 class="section-subtitle">My Work</h6>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="card-container">
+            <div class="project-card">
+                 <!-- Make sure you have these image files in the same directory -->
+                <img src="Capture.png" alt="FitLife Gym Management Project">
+                <div class="project-content">
+                    <h2>FitLife Gym Management</h2>
+                    <p>A comprehensive platform for gym owners to manage memberships, schedules, and trainers.</p>
+                    <div class="project-tags">
+                        <button class="project-btn">React</button>
+                        <button class="project-btn">Node.js</button>
+                        <button class="project-btn">MongoDB</button>
+                    </div>
+                    <div class="project-links">
+                        <button class="demo">Live Demo</button>
+                        <button class="gith">GitHub</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="Capture 2.png" alt="EduVoyage Platform Project">
+                <div class="project-content">
+                    <h2>EduVoyage Platform</h2>
+                    <p>An interactive platform for discovering courses and booking travel packages with secure payments.</p>
+                     <div class="project-tags">
+                        <button class="project-btn">Vue.js</button>
+                        <button class="project-btn">Django</button>
+                        <button class="project-btn">PostgreSQL</button>
+                    </div>
+                    <div class="project-links">
+                        <button class="demo">Live Demo</button>
+                        <button class="gith">GitHub</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="capture3.png" alt="ChainSecure Ledger Project">
+                <div class="project-content">
+                    <h2>ChainSecure Ledger</h2>
+                    <p>A decentralized application for secure asset tracking using blockchain technology.</p>
+                    <div class="project-tags">
+                        <button class="project-btn">Solidity</button>
+                        <button class="project-btn">React</button>
+                        <button class="project-btn">Hardhat</button>
+                    </div>
+                    <div class="project-links">
+                        <button class="demo">Live Demo</button>
+                        <button class="gith">GitHub</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitment Section -->
+    <section id="Commitment">
+        <div class="commitment-image">
+            <img src="https://ehtishamsarwarofficials.com/work.avif" alt="Illustration of a person working on a laptop">
+        </div>
+        <div class="commitment-text">
+            <h6 class="section-subtitle" style="text-align: left;">MY COMMITMENT</h6>
+            <h2>Partnering for Your Success</h2>
+            <p>Choosing the right developer is crucial. I'm dedicated to understanding your unique needs and delivering solutions that not only meet but exceed your expectations. My focus is on creating value through quality, innovation, and collaboration.</p>
+            <div class="commitment-list">
+                <div class="item"><i class="fa-solid fa-check"></i><h3>Transparent Communication</h3></div>
+                <div class="item"><i class="fa-solid fa-check"></i><h3>Quality-Driven Development</h3></div>
+                <div class="item"><i class="fa-solid fa-check"></i><h3>Timely Delivery & Support</h3></div>
+                <div class="item"><i class="fa-solid fa-check"></i><h3>Scalable & Future-Proof Solutions</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="Contact" style="background-color: var(--bg-light);">
+        <h6 class="section-subtitle">LET'S CONNECT</h6>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="form-container">
+            <div class="form-row">
+                <input type="text" name="Name" placeholder="Name">
+                <input type="email" name="Email" placeholder="Email">
+            </div>
+            <input type="text" name="Subject" placeholder="Subject" style="width: 100%; margin-bottom: 20px;">
+            <textarea name="Message" placeholder="Your Message"></textarea>
+            <button class="massagebuton">Send Message</button>
+        </div>
+        <div class="contact-info">
+            <h5>Or connect with me on:</h5>
+            <a href="mailto:tehseenarshad77@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fab fa-github"></i> Github</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-about">
+            <h2>Tehseen Arshad</h2>
+            <p>Passionate about building innovative and user-friendly web solutions, from fitness apps to blockchain platforms. Let's collaborate to bring your ideas to life.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/923000372294"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Skills">Skills</a></li>
+                <li><a href="#Services">Services</a></li>
+                <li><a href="#Projects">Projects</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Get In Touch</h3>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i>Planet Earth (Remote Ready)</li>
+                <li><i class="fas fa-envelope"></i><a href="mailto:tehseenarshad77@gmail.com">tehseenarshad77@gmail.com</a></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+923000372294">+92 3000372294</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Tehseen Arshad. All Rights Reserved.</p>
+        <div class="footer-legal">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</body>
+</html>
